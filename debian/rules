@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+# debian/rules file for libxml-commons-resolver1.1-java (uses cdbs)
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/javahelper.mk
+include /usr/share/cdbs/1/class/ant.mk
+
+include /usr/share/gcj/debian_defaults                                                                                                                                               
+ifneq (,$(filter $(DEB_HOST_ARCH), $(gcj_native_archs)))                                                                                                                             
+  with_gcj_native := yes
+endif
+
+JAVA_HOME := /usr/lib/jvm/default-java
+
+DEB_JARS := xerces jaxp-1.3
+DEB_ANT_BUILDFILE := resolver.xml
+DEB_ANT_BUILD_TARGET := jar
+
+install/libxml-commons-resolver1.1-java:: build
+	mh_install
+
+ifeq ($(with_gcj_native),yes)
+install/libxml-commons-resolver1.1-java-gcj:: install/libxml-commons-resolver1.1-java
+	dh_nativejava -plibxml-commons-resolver1.1-java-gcj
+endif

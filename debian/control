@@ -1,0 +1,44 @@
+Source: libxml-commons-resolver1.1-java
+Section: java
+Priority: optional
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders: Michael Koch <konqueror@gmx.de>, Torsten Werner <twerner@debian.org>,
+ Jakub Adam <jakub.adam@ktknet.cz>
+Build-Depends: debhelper (>= 5), cdbs (>= 0.4.8), default-jdk, ant,
+ javahelper, libjaxp1.3-java, maven-repo-helper (>= 1.4), gcj-native-helper
+Standards-Version: 3.9.2
+Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/libxml-commons-resolver1.1-java
+Vcs-Browser: http://svn.debian.org/wsvn/pkg-java/trunk/libxml-commons-resolver1.1-java
+Homepage: http://xml.apache.org/commons/
+
+Package: libxml-commons-resolver1.1-java
+Architecture: all
+Depends: ${misc:Depends}
+Suggests: libxml-commons-resolver1.1-java-doc
+Description: XML entity and URI resolver library
+ Apache XML Commons Resolver simplifies the task of using XML catalog files to
+ perform entity resolution. They are used by other Apache XML projects like
+ Xerces-J and Xalan-J.
+
+Package: libxml-commons-resolver1.1-java-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Suggests: libxml-commons-resolver1.1-java
+Description: XML entity and URI resolver library -- documentation
+ Apache XML Commons Resolver simplifies the task of using XML catalog files to
+ perform entity resolution. They are used by other Apache XML projects like
+ Xerces-J and Xalan-J.
+ .
+ This package includes the HTML and Javadoc API documentation.
+
+Package: libxml-commons-resolver1.1-java-gcj
+Architecture: any
+Section: libs
+Depends: libxml-commons-resolver1.1-java (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: XML entity and URI resolver library -- native library
+ Apache XML Commons Resolver simplifies the task of using XML catalog files to
+ perform entity resolution. They are used by other Apache XML projects like
+ Xerces-J and Xalan-J.
+ .
+ This package contains the natively compiled code for use by gij.
